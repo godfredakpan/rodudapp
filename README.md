@@ -23,7 +23,7 @@ The project is a Simple Truck Ordering Application designed for Android and iOS 
 - **Order Status Updates**: Update order status (e.g., pending, in-progress, delivered).
 - **User Communication**: Email notifications for updates.
 
-# Access Bakcned here: https://rodudapp.hrmaneja.com
+### Access Backend here: https://rodudapp.hrmaneja.com
    - You can use my credential or signup to access.
    - godfredakpan@gmail.com
    - password
