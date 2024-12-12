@@ -154,8 +154,8 @@ Styling is managed using `StyleSheet` from React Native, with a focus on respons
      ```bash
      yarn ios
      ```
-    - Please note:  This is the link to the android and ios folders: https://www.mediafire.com/file/d0v834j6egmdv9n/AndroidAndIosFiles.zip/file
-2. Publish the app to Google Play Store and Apple App Store following their guidelines.
+    
+2. Note:  This is the link to the android and ios folders: https://www.mediafire.com/file/d0v834j6egmdv9n/AndroidAndIosFiles.zip/file
 
 ---
 
