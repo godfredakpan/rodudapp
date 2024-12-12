@@ -32,7 +32,7 @@ class AuthController extends Controller
             $token = Str::random(60);
 
             $user = User::create([
-                'name' => $request->first_name . ' ' . $request->last_name,
+                'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
