@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Wallet;
 use Illuminate\Support\Str;
 use App\Mail\NotificationMail;
 use Illuminate\Support\Facades\Mail;
@@ -20,7 +19,8 @@ class AuthController extends Controller
     {
         try {
             if (User::where('email', $request->email)->exists()) {
-                return response()->json(['message' => 'User already exists'], 409);
+                // return response()->json(['message' => 'Email already exists'], 409); // proper return message
+                return false;
             }
 
             $request->validate([
@@ -41,6 +41,9 @@ class AuthController extends Controller
                 return response()->json(['message' => 'User could not be created'], 500);
             }
 
+            $user->email_verification_token = $token;
+            $user->save();
+
 
             $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -48,7 +51,7 @@ class AuthController extends Controller
 
             $notificationController->sendSignupEmail($user->id);
 
-            return response()->json(['access_token' => $token, 'token_type' => 'Bearer', 'user' => $user, 'wallet' => $wallet]);
+            return response()->json(['access_token' => $token, 'token_type' => 'Bearer', 'user' => $user]);
 
         } catch (ValidationException $e) {
             return response()->json(['message' => $e->getMessage(), 'errors' => $e->errors()], 422);
@@ -79,8 +82,8 @@ class AuthController extends Controller
 
             $token = $user->createToken('auth_token')->plainTextToken;
 
-            // $notificationController = new EmailController();
-            // $notificationController->sendSigninEmail($user->id); uncomment if needed 
+            $notificationController = new EmailController();
+            $notificationController->sendSigninEmail($user->id); 
 
             return response()->json(['access_token' => $token, 'token_type' => 'Bearer', 'user' => $user]);
 

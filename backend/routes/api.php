@@ -29,7 +29,7 @@ Route::middleware('throttle:60,1')->group(function () {
     Route::post('/password/reset', [AuthController::class, 'resetPassword']);
     
     // Email Notification Routes
-    // Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verification.verify'); // we do  not need this for now
+    Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verification.verify'); // we do  not need this for now
     Route::get('/notification/send-signup-email/{userId}', [EmailController::class, 'sendSignupEmail']);
     // Route::get('/notification/send-signin-email/{userId}', [EmailController::class, 'sendSigninEmail']); // we do  not need this for now
     Route::post('/notification/send-order-email/{userId}', [EmailController::class, 'sendTransactionEmail']);
