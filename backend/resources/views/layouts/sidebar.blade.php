@@ -17,13 +17,15 @@ style="background: #1a1a1a">
                 <p>Dashboard</p>
             </a>
         </li>
+        @if (Auth::user()->is_admin ?? false)
         <li class="{{ Request::is('dashboard/messages') ? 'active' : '' }}">
             <a href="{{ route('orders.index') }}">
                 <i class="tim-icons icon-delivery-fast "></i>
                 <p>Shipments</p>
             </a>
         </li>
-        @if (Auth::user()->is_admin)
+        @endif
+        @if (Auth::user()->is_admin ?? false)
             <li class="{{ Request::is('dashboard/users') ? 'active' : '' }}">
                 <a href="{{ route('all.users') }}">
                     <i class="tim-icons icon-single-02"></i>

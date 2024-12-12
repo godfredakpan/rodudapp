@@ -26,6 +26,28 @@ class DashboardRepository
         return $total;
     }
 
+    public function transit_orders()
+    {
+        $total = Orders::where('status', 'in progress')->count();
+
+        return $total;
+    }
+
+    public function searching_orders()
+    {
+        $total = Orders::where('status', 'pending')->count();
+
+        return $total;
+    }
+
+    public function completed_orders()
+    {
+        $total = Orders::where('status', 'delivered')->count();
+
+        return $total;
+
+    }
+
 
     public function latest_users()
     {

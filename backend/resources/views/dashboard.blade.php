@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-body">
-                            <h4> Welcome, {{ Auth::user()->name }} </h4>
+                            <h4> Welcome, {{ Auth::user()->name ?? "" }} </h4>
                         </div>
                     </div>
                         <div class="col-lg-3 col-md-6">
@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <div class="status-dot bg-success"></div>
-                                        <h5 class="card-category ml-2">Total Customers</h5>
+                                        <h5 class="card-category ml-2">Total Users</h5>
                                     </div>
                                     <h1 class="card-title mt-3">{{ $total_users ?? 0 }}</h1>
                                 </div>
@@ -52,10 +52,10 @@
                             <div class="card text-center p-3 shadow-sm border">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-center align-items-center">
-                                        <div class="status-dot bg-success"></div>
-                                        <h5 class="card-category ml-2">Active Orders</h5>
+                                        <i class="tim-icons icon-box-3 text-primary"></i>
+                                        <h5 class="card-category ml-2">Total Orders</h5>
                                     </div>
-                                    <h1 class="card-title mt-3">{{ $active_orders ?? 0 }}</h1>
+                                    <h1 class="card-title mt-3">{{ $total_orders ?? 0 }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                         <i class="tim-icons icon-delivery-fast text-primary"></i>
                                         <h5 class="card-category ml-2">On-Transit</h5>
                                     </div>
-                                    <h1 class="card-title mt-3">{{ $on_transit_orders ?? 0 }}</h1>
+                                    <h1 class="card-title mt-3">{{ $transit_orders ?? 0 }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                         <i class="tim-icons icon-check-2 text-primary"></i>
                                         <h5 class="card-category ml-2">Delivered</h5>
                                     </div>
-                                    <h1 class="card-title mt-3">{{ $delivered_orders ?? 0 }}</h1>
+                                    <h1 class="card-title mt-3">{{ $completed_orders ?? 0 }}</h1>
                                 </div>
                             </div>
                         </div>

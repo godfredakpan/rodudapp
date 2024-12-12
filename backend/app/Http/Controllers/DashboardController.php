@@ -31,8 +31,9 @@ class DashboardController extends Controller
 
         $user = Auth::user();
 
-        if($user->is_admin != '1'){
+        if($user->is_admin == false){
             Auth::logout();
+            return redirect()->route('login');
         }
 
         $latest_users = $this->dashboard->latest_users();
@@ -41,7 +42,13 @@ class DashboardController extends Controller
 
         $total_orders = $this->dashboard->total_orders();
 
-        return view('dashboard', compact('total_users', 'latest_users', 'total_orders'));
+        $completed_orders = $this->dashboard->completed_orders();
+
+        $searching_orders = $this->dashboard->searching_orders();
+
+        $transit_orders = $this->dashboard->transit_orders();
+
+        return view('dashboard', compact('total_users', 'latest_users', 'total_orders', 'completed_orders', 'searching_orders', 'transit_orders'));
     
     }
 }
