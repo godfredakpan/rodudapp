@@ -18,7 +18,7 @@ The project is a Simple Truck Ordering Application designed for Android and iOS 
 - **User Authentication**: Laravel Sanctum for secure authentication.
 - **Notifications**: New order notifications to the admin.
 
-### Admin Interface (Laravel)
+### Admin Interface (Laravel) Access here: https://rodudapp.hrmaneja.com
 - **Order Monitoring**: View and manage all submitted orders.
 - **Order Status Updates**: Update order status (e.g., pending, in-progress, delivered).
 - **User Communication**: Email notifications for updates.
